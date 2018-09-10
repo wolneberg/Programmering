@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep  9 18:44:55 2018
+
+@author: ingridmariewolneberg
+"""
+def pånytt():
+    igjen=input("Vil du prøve på nytt? ")
+    if igjen=="ja":
+        input()
+        spill()
+    elif igjen=="nei":
+        print("Ok, ha det bra!")
+    else:
+        print("Programmet skjønte ikke hva du mente, du må formulere deg annerledes!")
+        pånytt()
+
+def koden():
+    kode=input("Det er bare tall fra 1-3 som er brukt på kodelåsen. Hva tror du koden er? ")
+    if kode=="13":
+        print("Det klikker i låsen og boksen åpner seg, der ligger det en nøkkel!")
+        input()
+        print("Du løper bort til døra, og låser opp...")
+        input()
+        print("Du åpner døra og solskinnet lyser opp deg og rommet!")
+        print("Ute av rommet skimter du en pyramide i det fjerne")
+        input()
+        print(" "*20)
+        for x in range(1,21):
+            print(" "*(20-x),"A"*(2*x-1))
+        input()
+        print("      Gratulerer, du kom deg ut!")
+        input()
+        pånytt()
+    else:
+        print("Ingenting skjedde, det var feil kode. Du prøver igjen!")
+        koden()
+
+def leting():
+    lete=input("Hvor vil du lete? sofaen, tven, bordet eller det første rommet? ")
+    if lete=="sofaen":
+        print("Du kaster vekk alle sofaputene og finner en liten safe med kodelås, det er bare to tallhjul på låsen, så du tenker at du kan gjette, det er bare tallene fra 1-3 som er brukt:")
+        koden()
+    elif lete=="det første rommet":
+        print("I det første rommet går du til skapet med bryterne og velger vindu-bryteren istedenfor for dør-bryteren ")
+        input()
+        vinduet()
+    elif lete=="tven" :
+        print("Du finner ingenting som kan hjelpe deg ved tven...")
+        input()
+        leting()
+    elif lete=="bordet":
+        print("Du finner en nøkkel under bordet!")
+        input()
+        print("Kan det være nøkkelen som låser opp døra?")
+        input()
+        print("Du løper bort å tester")
+        input()
+        print("Nøkkelen passet ikke.. Du bestemmer deg for å lete på nytt")
+        leting()
+    else:
+        print("Programmet skjønte ikke hva du mente, du må formulere deg annerledes!")
+        spill()
+
+def dør():
+    print("Du hører et metallisk klang og den ene veggen i rommet sklir sidelengs inn i hjørnet og avdekker en ny vegg med en dør. Du kjenner det plutselig lettet, endelig fant du en vei ut av dette rommet!")
+    input()
+    print("Idet du åpner døra og ser ut, forsvinner lettelsen, døra ledet inn til et nytt rom...")
+    input()
+    print("Det nye rommet er mer møblert, det er sofa, tv, bord, og en dør!")
+    input()
+    print("Du går bort til døra, men kjenner at den er låst, så du tenker at du må finne nøkkelen.")
+    input()
+    leting()
+    
+def vinduet():
+    print("Den ene veggen åpner plutselig en luke og avdekker et kvadratisk vindu. Du løper bort til vinduet, åpner det og kaster deg ut.")
+    input()
+    print("Ute av rommet skimter du en pyramide i det fjerne")
+    input()
+    print(" "*20)
+    for x in range(1,21):
+        print(" "*(20-x),"A"*(2*x-1))
+    input()
+    print("       Gratulerer, du kom deg ut!")
+    input()
+    pånytt()
+
+def bryteren():
+    bryter=input("Hvilken velger du, dør eller vindu? ")
+    if bryter=="dør":
+        dør()
+    elif bryter=="vindu":
+        vinduet()
+    else:
+        print("Programmet skjønte ikke hva du mente, du må formulere deg annerledes!")
+        bryteren()
+        
+def blåpille():
+    print("Du kjenner deg plutselig veldig kvalm og kaster opp... Det tar ikke lang tid før du føler deg bedre igjen og oppdager noe glinsende metallaktig i oppkastet. Det er en nøkkel!")
+    input()
+    print("Det tar litt tid, men så innser du at det er nøkkelen til skapet så du går og låser det opp. Inni skapet er det to brytere, den ene har en lapp over som sier dør og over den andre står det vindu.")
+    bryteren()
+    
+def rødpille():
+    print("Du skjønner med engang at du tok feil pille, kroppen din kollapser og du vrir deg rundt i smerte. Plutselig kjenner du ingenting lenger...") 
+    input()
+    print("GAME OVER")
+    input()
+    pånytt()
+    
+def glass():
+    valg=input("Hvilken pille tar du? ")
+    if valg=="blå":
+        blåpille()
+    elif valg=="rød":
+        rødpille()
+    elif valg=="glasset":
+        glass()
+    else:
+        print("Programmet skjønte ikke hva du mente, du må formulere deg annerledes!")
+        glass()
+        
+def spill():
+    print("Du åpner øynene og ser deg rundt. Du er alene i kvadratisk rom med svarte vegger og ingen vinduer eller dører, kun et låst skap. Foran deg ser du et bord med to piller en rød og en blå, og et glass halvfullt med noe som kan være vann, men du vet ikke. På bordet ligger det en lapp som sier: Den ene pillen dreper deg, den andre gir deg en fordel.")
+    input()
+    svar=input("Hva tar du, rød, blå, eller glasset? ")
+    if svar=="blå":
+        blåpille()
+    elif svar=="rød":
+        rødpille()
+    elif svar=="glasset":
+        print("Du løfter glasset til munnen og heller alt ned på engang. Det var ikke noe mer enn et forfriskende glass vann til å klarne tankene. Nå må du velge en av pillene likevel.")
+        glass()
+    else:
+        print("Programmet skjønte ikke hva du mente, du må formulere deg annerledes!")
+        input()
+        spill()
+
+
+print("Dobbeltrykk på enter for å starte spillet og trykk enter for å gå videre underveis i spillet")
+input()
+print("Målet med spillet er å komme deg ut av rommet!")
+input()
+spill() 
+    
+    
